@@ -1,8 +1,10 @@
 package prog_avanzada;
 
 import java.io.PrintStream;
-import java.util.Iterator;
+import java.io.StringWriter;
 import java.util.List;
+
+import javax.xml.bind.JAXB;
 
 public class TreeActions {
 	
@@ -155,4 +157,13 @@ public class TreeActions {
 	    traverseNPreOrder(sb, "", "", tree);
 	    os.print(sb.toString());
 	}
+	
+	public static String convertObjectToXML(Object customer,String name) {
+		StringWriter sw = new StringWriter();
+		JAXB.marshal(customer, sw);
+		String xmlString = sw.toString();
+		System.out.println(xmlString);
+      return null;
+  }
+	
 }

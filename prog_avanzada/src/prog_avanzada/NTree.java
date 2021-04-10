@@ -21,6 +21,8 @@ public class NTree {
 		//TreeActions.addNode(tree, subNode2, "b");
 		//System.out.println(tree.toString());
 		TreeActions.printNTree(System.out, tree);
+		TreeActions.convertObjectToXML(tree, "pino");
+
 		
 		BinaryNode bTree = new BinaryNode(20);
 		TreeActions.add(bTree, 12);
@@ -30,6 +32,9 @@ public class NTree {
 		TreeActions.add(bTree, 15);
 		TreeActions.add(bTree, 16);
 		TreeActions.printBTree(System.out, bTree);
+		
+		TreeActions.convertObjectToXML(bTree, "pino");
+		
 	}
 
 }
