@@ -28,7 +28,47 @@ public class TreeActions {
 	
 	public void deleteNode(Node deleteNode) {}
 	
-	public void findNode(Node findNode) {}
+	public Node findNode(Node tree, Node findNode) {
+		if (tree.getValue().equals(findNode.getValue())) {
+			return tree;
+		} else {
+			List<Node> children = tree.getChildren();
+			boolean found = false;
+			int index = 0;
+			while(!found && index < children.size()) {
+				if (children.get(index).getValue().equals(findNode.getValue())) {
+					return children.get(index);
+				} else {
+					index++;
+					findNode(children.get(index), findNode);
+				}
+				
+			}
+		}
+		return null;
+	}
+	
+	public Boolean isNodeNull(Node node) {
+		return node != null ? true : false;
+	}
+	
+	public Boolean isEmpty(Node tree) {
+		return this.isNodeNull(tree) && tree.getChildren().isEmpty();
+	}
+	
+	public Node getParent(Node node) {
+		return node.getParent();
+	}
+	
+	public Node getLeftChild(Node node) {
+		List<Node> aux = node.getChildren();
+		return aux.get(0);
+	}
+	
+	public Node getRightChild(Node node) {
+		List<Node> aux = node.getChildren();
+		return aux.get(aux.size() - 1);
+	}
 	
 	public static void printTree(Node tree) {
 		for (Node string : tree.getChildren()) {
